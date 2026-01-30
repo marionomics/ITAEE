@@ -1,0 +1,424 @@
+================================================================================
+VAR MODEL RESULTS LOG
+Generated: 2026-01-30 15:14:28
+Data: 70 quarters, 2007-04-01 to 2024-10-01
+Transformation: log-differences
+Max lags considered: 3
+================================================================================
+
+STATIONARITY TESTS (LEVELS)
+--------------------------------------------------------------------------------
+                       ADF Stat  ADF p-value  ADF Lags  KPSS Stat  KPSS p-value  KPSS Lags Stationary (ADF) Stationary (KPSS)
+Variable                                                                                                                     
+ITAEE_Nacional          -0.4483       0.9017         3     0.1385        0.0639          4               No               Yes
+ITAEE_Aguascalientes    -1.0127       0.7486         4     0.2848        0.0100          4               No                No
+ITAEE_Durango           -1.7331       0.4141         8     0.2645        0.0100          4               No                No
+ITAEE_Querétaro         -1.3298       0.6154         3     0.2590        0.0100          4               No                No
+ITAEE_San Luis Potosí   -0.7370       0.8369         2     0.1662        0.0332          4               No                No
+ITAEE_Zacatecas         -1.6343       0.4653         3     0.3549        0.0100          0               No                No
+FX_USD                  -1.3239       0.6182         0     0.1572        0.0407          5               No                No
+FX_CAD                  -2.2162       0.2004         3     0.1279        0.0835          5               No               Yes
+FX_BRL                  -0.8246       0.8118         1     0.1141        0.1000          4               No               Yes
+FX_JPY                  -2.5089       0.1133         1     0.1438        0.0540          5               No               Yes
+FX_CNY                  -1.9275       0.3192         0     0.1953        0.0177          5               No                No
+FX_COP                  -7.5030       0.0000         0     0.1975        0.0169          1              Yes                No
+FX_CLP                  -7.1292       0.0000         0     0.2509        0.0100          2              Yes                No
+FX_RUB                  -1.2852       0.6359         2     0.0568        0.1000          1               No               Yes
+FX_ILS                  -1.4679       0.5493         1     0.1373        0.0662          5               No               Yes
+FX_EUR                  -1.8808       0.3411         1     0.1348        0.0708          5               No               Yes
+FX_INR                  -2.4755       0.1215         4     0.1243        0.0901          5               No               Yes
+
+STATIONARITY TESTS (LOG-DIFFERENCES)
+--------------------------------------------------------------------------------
+                       ADF Stat  ADF p-value  ADF Lags  KPSS Stat  KPSS p-value  KPSS Lags Stationary (ADF) Stationary (KPSS)
+Variable                                                                                                                     
+ITAEE_Nacional          -8.1368       0.0000         2     0.0767        0.1000         10              Yes               Yes
+ITAEE_Aguascalientes    -6.2490       0.0000         3     0.3240        0.0100         45              Yes                No
+ITAEE_Durango           -2.6213       0.0887         7     0.1827        0.0225         30               No                No
+ITAEE_Querétaro         -7.1898       0.0000         2     0.2204        0.0100         37              Yes                No
+ITAEE_San Luis Potosí   -8.2353       0.0000         1     0.0619        0.1000          8              Yes               Yes
+ITAEE_Zacatecas        -13.2793       0.0000         2     0.0892        0.1000         13              Yes               Yes
+FX_USD                  -7.0006       0.0000         0     0.0527        0.1000          3              Yes               Yes
+FX_CAD                  -3.7148       0.0039         2     0.0474        0.1000          3              Yes               Yes
+FX_BRL                  -6.3202       0.0000         0     0.0704        0.1000          1              Yes               Yes
+FX_JPY                  -6.7757       0.0000         0     0.0631        0.1000          3              Yes               Yes
+FX_CNY                  -6.8301       0.0000         0     0.0375        0.1000          2              Yes               Yes
+FX_COP                  -6.7610       0.0000         4     0.1986        0.0165         29              Yes                No
+FX_CLP                  -5.1178       0.0000         8     0.4166        0.0100         57              Yes                No
+FX_RUB                  -8.9939       0.0000         1     0.3525        0.0100         48              Yes                No
+FX_ILS                  -7.0976       0.0000         0     0.0805        0.1000          0              Yes               Yes
+FX_EUR                  -7.1206       0.0000         0     0.0504        0.1000          1              Yes               Yes
+FX_INR                  -6.4304       0.0000         0     0.0754        0.1000          2              Yes               Yes
+
+================================================================================
+STATE: Aguascalientes
+================================================================================
+
+Selected lag (AIC): p = 3
+Observations used: 66
+Stable (all roots outside unit circle): True
+
+Durbin-Watson per equation:
+   Nacional            : 1.946
+   Aguascalientes      : 2.100
+   USD                 : 2.161
+   CAD                 : 2.152
+   BRL                 : 2.078
+   JPY                 : 2.294
+   CNY                 : 2.235
+   COP                 : 2.204
+   CLP                 : 2.081
+   RUB                 : 2.160
+   ILS                 : 1.913
+   EUR                 : 1.989
+   INR                 : 2.152
+
+Jarque-Bera per equation:
+   Nacional            : JB=1508.944  p=0.0000 *
+   Aguascalientes      : JB=1111.792  p=0.0000 *
+   USD                 : JB=  24.387  p=0.0000 *
+   CAD                 : JB=  84.905  p=0.0000 *
+   BRL                 : JB=   0.666  p=0.7169
+   JPY                 : JB=  13.409  p=0.0012 *
+   CNY                 : JB=   7.026  p=0.0298 *
+   COP                 : JB= 540.647  p=0.0000 *
+   CLP                 : JB=   2.399  p=0.3014
+   RUB                 : JB=  13.925  p=0.0009 *
+   ILS                 : JB=  12.473  p=0.0020 *
+   EUR                 : JB=  10.610  p=0.0050 *
+   INR                 : JB=   5.237  p=0.0729
+
+Granger Causality: FX → ITAEE_Aguascalientes
+     F-stat  p-value Significant (5%)
+FX                                   
+USD   1.022   0.3896               No
+CAD   0.662   0.5788               No
+BRL   0.309   0.8191               No
+JPY   0.748   0.5278               No
+CNY   1.527   0.2168               No
+COP   0.109   0.9545               No
+CLP   0.616   0.6076               No
+RUB   0.266   0.8496               No
+ILS   0.284   0.8366               No
+EUR   0.896   0.4486               No
+INR   1.051   0.3768               No
+
+FEVD at horizon 20 (variance share of state ITAEE):
+   Nacional            : 0.5089
+   Aguascalientes      : 0.1649
+   USD                 : 0.0228
+   CAD                 : 0.0523
+   BRL                 : 0.0169
+   JPY                 : 0.0305
+   CNY                 : 0.0411
+   COP                 : 0.0255
+   CLP                 : 0.0159
+   RUB                 : 0.0373
+   ILS                 : 0.0166
+   EUR                 : 0.0197
+   INR                 : 0.0476
+
+================================================================================
+STATE: Durango
+================================================================================
+
+Selected lag (AIC): p = 3
+Observations used: 66
+Stable (all roots outside unit circle): True
+
+Durbin-Watson per equation:
+   Nacional            : 2.119
+   Durango             : 2.103
+   USD                 : 2.205
+   CAD                 : 2.316
+   BRL                 : 2.089
+   JPY                 : 2.376
+   CNY                 : 2.394
+   COP                 : 2.231
+   CLP                 : 1.925
+   RUB                 : 2.238
+   ILS                 : 2.153
+   EUR                 : 2.184
+   INR                 : 2.265
+
+Jarque-Bera per equation:
+   Nacional            : JB= 633.993  p=0.0000 *
+   Durango             : JB=  41.631  p=0.0000 *
+   USD                 : JB=  13.196  p=0.0014 *
+   CAD                 : JB=  88.555  p=0.0000 *
+   BRL                 : JB=   2.011  p=0.3658
+   JPY                 : JB=   6.022  p=0.0492 *
+   CNY                 : JB=   9.531  p=0.0085 *
+   COP                 : JB= 665.352  p=0.0000 *
+   CLP                 : JB=   2.759  p=0.2517
+   RUB                 : JB=  10.552  p=0.0051 *
+   ILS                 : JB=  58.585  p=0.0000 *
+   EUR                 : JB=  12.224  p=0.0022 *
+   INR                 : JB=  10.575  p=0.0051 *
+
+Granger Causality: FX → ITAEE_Durango
+     F-stat  p-value Significant (5%)
+FX                                   
+USD   2.689   0.0544               No
+CAD   1.553   0.2104               No
+BRL   0.207   0.8914               No
+JPY   0.955   0.4201               No
+CNY   1.454   0.2364               No
+COP   0.422   0.7376               No
+CLP   0.364   0.7795               No
+RUB   0.050   0.9851               No
+ILS   1.016   0.3921               No
+EUR   0.944   0.4252               No
+INR   3.941   0.0125              Yes
+
+FEVD at horizon 20 (variance share of state ITAEE):
+   Nacional            : 0.2590
+   Durango             : 0.2998
+   USD                 : 0.0591
+   CAD                 : 0.0352
+   BRL                 : 0.0627
+   JPY                 : 0.0768
+   CNY                 : 0.0339
+   COP                 : 0.0542
+   CLP                 : 0.0078
+   RUB                 : 0.0356
+   ILS                 : 0.0080
+   EUR                 : 0.0506
+   INR                 : 0.0172
+
+================================================================================
+STATE: Querétaro
+================================================================================
+
+Selected lag (AIC): p = 3
+Observations used: 66
+Stable (all roots outside unit circle): True
+
+Durbin-Watson per equation:
+   Nacional            : 2.074
+   Querétaro           : 2.077
+   USD                 : 2.260
+   CAD                 : 2.181
+   BRL                 : 1.789
+   JPY                 : 2.364
+   CNY                 : 2.314
+   COP                 : 2.212
+   CLP                 : 2.005
+   RUB                 : 2.269
+   ILS                 : 1.980
+   EUR                 : 2.149
+   INR                 : 2.189
+
+Jarque-Bera per equation:
+   Nacional            : JB=1721.607  p=0.0000 *
+   Querétaro           : JB=1199.029  p=0.0000 *
+   USD                 : JB=  12.172  p=0.0023 *
+   CAD                 : JB=  54.376  p=0.0000 *
+   BRL                 : JB=   6.500  p=0.0388 *
+   JPY                 : JB=   7.300  p=0.0260 *
+   CNY                 : JB=   2.103  p=0.3494
+   COP                 : JB= 249.708  p=0.0000 *
+   CLP                 : JB=   2.065  p=0.3561
+   RUB                 : JB=  10.517  p=0.0052 *
+   ILS                 : JB=   6.305  p=0.0427 *
+   EUR                 : JB=   3.475  p=0.1760
+   INR                 : JB=   0.502  p=0.7779
+
+Granger Causality: FX → ITAEE_Querétaro
+     F-stat  p-value Significant (5%)
+FX                                   
+USD   1.524   0.2176               No
+CAD   0.177   0.9115               No
+BRL   0.493   0.6883               No
+JPY   1.139   0.3409               No
+CNY   1.390   0.2546               No
+COP   0.043   0.9878               No
+CLP   0.266   0.8497               No
+RUB   0.345   0.7927               No
+ILS   0.712   0.5488               No
+EUR   1.045   0.3793               No
+INR   1.010   0.3949               No
+
+FEVD at horizon 20 (variance share of state ITAEE):
+   Nacional            : 0.5099
+   Querétaro           : 0.1291
+   USD                 : 0.0482
+   CAD                 : 0.0395
+   BRL                 : 0.0755
+   JPY                 : 0.0148
+   CNY                 : 0.0556
+   COP                 : 0.0140
+   CLP                 : 0.0058
+   RUB                 : 0.0482
+   ILS                 : 0.0152
+   EUR                 : 0.0115
+   INR                 : 0.0327
+
+================================================================================
+STATE: San Luis Potosí
+================================================================================
+
+Selected lag (AIC): p = 3
+Observations used: 66
+Stable (all roots outside unit circle): True
+
+Durbin-Watson per equation:
+   Nacional            : 1.979
+   San Luis Potosí     : 2.068
+   USD                 : 2.209
+   CAD                 : 2.224
+   BRL                 : 1.924
+   JPY                 : 2.293
+   CNY                 : 2.218
+   COP                 : 2.191
+   CLP                 : 2.073
+   RUB                 : 2.176
+   ILS                 : 1.979
+   EUR                 : 2.144
+   INR                 : 2.061
+
+Jarque-Bera per equation:
+   Nacional            : JB= 680.083  p=0.0000 *
+   San Luis Potosí     : JB= 473.804  p=0.0000 *
+   USD                 : JB=   5.574  p=0.0616
+   CAD                 : JB=  39.948  p=0.0000 *
+   BRL                 : JB=   1.476  p=0.4780
+   JPY                 : JB=   5.636  p=0.0597
+   CNY                 : JB=   2.320  p=0.3134
+   COP                 : JB= 832.371  p=0.0000 *
+   CLP                 : JB=   1.794  p=0.4078
+   RUB                 : JB=   9.392  p=0.0091 *
+   ILS                 : JB=   5.247  p=0.0726
+   EUR                 : JB=  14.072  p=0.0009 *
+   INR                 : JB=   0.922  p=0.6305
+
+Granger Causality: FX → ITAEE_San Luis Potosí
+     F-stat  p-value Significant (5%)
+FX                                   
+USD   1.286   0.2874               No
+CAD   0.422   0.7381               No
+BRL   0.372   0.7733               No
+JPY   0.642   0.5908               No
+CNY   1.386   0.2561               No
+COP   0.133   0.9398               No
+CLP   0.368   0.7765               No
+RUB   0.044   0.9878               No
+ILS   0.510   0.6770               No
+EUR   0.335   0.7999               No
+INR   1.794   0.1582               No
+
+FEVD at horizon 20 (variance share of state ITAEE):
+   Nacional            : 0.5209
+   San Luis Potosí     : 0.1318
+   USD                 : 0.0281
+   CAD                 : 0.0535
+   BRL                 : 0.0281
+   JPY                 : 0.0209
+   CNY                 : 0.0265
+   COP                 : 0.0803
+   CLP                 : 0.0049
+   RUB                 : 0.0231
+   ILS                 : 0.0377
+   EUR                 : 0.0144
+   INR                 : 0.0298
+
+================================================================================
+STATE: Zacatecas
+================================================================================
+
+Selected lag (AIC): p = 3
+Observations used: 66
+Stable (all roots outside unit circle): True
+
+Durbin-Watson per equation:
+   Nacional            : 2.050
+   Zacatecas           : 2.094
+   USD                 : 2.418
+   CAD                 : 2.366
+   BRL                 : 2.008
+   JPY                 : 2.509
+   CNY                 : 2.527
+   COP                 : 1.958
+   CLP                 : 1.989
+   RUB                 : 2.253
+   ILS                 : 2.260
+   EUR                 : 2.248
+   INR                 : 2.414
+
+Jarque-Bera per equation:
+   Nacional            : JB= 746.121  p=0.0000 *
+   Zacatecas           : JB= 130.596  p=0.0000 *
+   USD                 : JB=  17.897  p=0.0001 *
+   CAD                 : JB=  54.552  p=0.0000 *
+   BRL                 : JB=   2.821  p=0.2440
+   JPY                 : JB=   6.116  p=0.0470 *
+   CNY                 : JB=   7.572  p=0.0227 *
+   COP                 : JB= 439.619  p=0.0000 *
+   CLP                 : JB=   2.060  p=0.3571
+   RUB                 : JB=   7.433  p=0.0243 *
+   ILS                 : JB=  15.446  p=0.0004 *
+   EUR                 : JB=   8.377  p=0.0152 *
+   INR                 : JB=   1.024  p=0.5992
+
+Granger Causality: FX → ITAEE_Zacatecas
+     F-stat  p-value Significant (5%)
+FX                                   
+USD   0.010   0.9986               No
+CAD   0.340   0.7963               No
+BRL   1.902   0.1391               No
+JPY   0.049   0.9855               No
+CNY   0.296   0.8282               No
+COP   0.299   0.8261               No
+CLP   1.374   0.2595               No
+RUB   0.214   0.8861               No
+ILS   0.130   0.9417               No
+EUR   0.277   0.8417               No
+INR   0.454   0.7157               No
+
+FEVD at horizon 20 (variance share of state ITAEE):
+   Nacional            : 0.2724
+   Zacatecas           : 0.2552
+   USD                 : 0.0184
+   CAD                 : 0.0647
+   BRL                 : 0.0587
+   JPY                 : 0.0348
+   CNY                 : 0.1120
+   COP                 : 0.0518
+   CLP                 : 0.0087
+   RUB                 : 0.0445
+   ILS                 : 0.0315
+   EUR                 : 0.0191
+   INR                 : 0.0284
+
+================================================================================
+CROSS-STATE SUMMARY
+================================================================================
+
+Summary table:
+                 VAR Lag (p)  Estable  N° FX Granger-significativos FX significativos
+Estado                                                                               
+Aguascalientes             3     True                             0                 —
+Durango                    3     True                             1               INR
+Querétaro                  3     True                             0                 —
+San Luis Potosí            3     True                             0                 —
+Zacatecas                  3     True                             0                 —
+
+Granger causality p-values (FX → state ITAEE):
+                    USD     CAD     BRL     JPY     CNY     COP     CLP     RUB     ILS     EUR     INR
+Aguascalientes   0.3896  0.5788  0.8191  0.5278  0.2168  0.9545  0.6076  0.8496  0.8366  0.4486  0.3768
+Durango          0.0544  0.2104  0.8914  0.4201  0.2364  0.7376  0.7795  0.9851  0.3921  0.4252  0.0125
+Querétaro        0.2176  0.9115  0.6883  0.3409  0.2546  0.9878  0.8497  0.7927  0.5488  0.3793  0.3949
+San Luis Potosí  0.2874  0.7381  0.7733  0.5908  0.2561  0.9398  0.7765  0.9878  0.6770  0.7999  0.1582
+Zacatecas        0.9986  0.7963  0.1391  0.9855  0.8282  0.8261  0.2595  0.8861  0.9417  0.8417  0.7157
+
+FEVD at horizon 20 (FX share of state ITAEE variance):
+                    USD     CAD     BRL     JPY     CNY     COP     CLP     RUB     ILS     EUR     INR
+Aguascalientes   0.0228  0.0523  0.0169  0.0305  0.0411  0.0255  0.0159  0.0373  0.0166  0.0197  0.0476
+Durango          0.0591  0.0352  0.0627  0.0768  0.0339  0.0542  0.0078  0.0356  0.0080  0.0506  0.0172
+Querétaro        0.0482  0.0395  0.0755  0.0148  0.0556  0.0140  0.0058  0.0482  0.0152  0.0115  0.0327
+San Luis Potosí  0.0281  0.0535  0.0281  0.0209  0.0265  0.0803  0.0049  0.0231  0.0377  0.0144  0.0298
+Zacatecas        0.0184  0.0647  0.0587  0.0348  0.1120  0.0518  0.0087  0.0445  0.0315  0.0191  0.0284
+
+================================================================================
+END OF LOG
+================================================================================

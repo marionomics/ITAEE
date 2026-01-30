@@ -1,0 +1,114 @@
+﻿Índice de nombres y contenido de archivos 
+ 
+ITAEE_3.xlsx|Serie detallada|Actividades económicas por entidad federativa|Total de la economía
+ITAEE_4.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades primarias
+ITAEE_5.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades primarias|Agricultura. Cría y explotación de animales
+ITAEE_6.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades primarias|Resto
+ITAEE_7.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades secundarias
+ITAEE_8.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades secundarias|Minería
+ITAEE_9.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades secundarias|Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final
+ITAEE_10.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades secundarias|Construcción
+ITAEE_11.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades secundarias|Industrias manufactureras
+ITAEE_12.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades terciarias
+ITAEE_13.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades terciarias|Comercio
+ITAEE_14.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades terciarias|Transportes, correos y almacenamiento. Información en medios masivos
+ITAEE_15.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades terciarias|Servicios financieros y de seguros. Servicios inmobiliarios y de alquiler de bienes muebles e intangibles
+ITAEE_16.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades terciarias|Servicios profesionales, científicos y técnicos. Corporativos. Servicios de apoyo a los negocios y manejo de residuos y desechos, y servicios de remediación. Otros servicios excepto actividades gubernamentales
+ITAEE_17.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades terciarias|Servicios educativos. Servicios de salud y de asistencia social. Actividades legislativas, gubernamentales, de impartición de justicia
+ITAEE_18.xlsx|Serie detallada|Actividades económicas por entidad federativa|Actividades terciarias|Servicios de esparcimiento culturales y deportivos, y otros servicios recreativos. Servicios de alojamiento temporal y de preparación de alimentos y bebidas 
+ITAEE_20.xlsx|Serie detallada|Entidades federativas por actividad económica|Estados Unidos Mexicanos
+ITAEE_21.xlsx|Serie detallada|Entidades federativas por actividad económica|Aguascalientes
+ITAEE_22.xlsx|Serie detallada|Entidades federativas por actividad económica|Baja California
+ITAEE_23.xlsx|Serie detallada|Entidades federativas por actividad económica|Baja California Sur
+ITAEE_24.xlsx|Serie detallada|Entidades federativas por actividad económica|Campeche
+ITAEE_25.xlsx|Serie detallada|Entidades federativas por actividad económica|Coahuila de Zaragoza
+ITAEE_26.xlsx|Serie detallada|Entidades federativas por actividad económica|Colima
+ITAEE_27.xlsx|Serie detallada|Entidades federativas por actividad económica|Chiapas
+ITAEE_28.xlsx|Serie detallada|Entidades federativas por actividad económica|Chihuahua
+ITAEE_29.xlsx|Serie detallada|Entidades federativas por actividad económica|Ciudad de México
+ITAEE_30.xlsx|Serie detallada|Entidades federativas por actividad económica|Durango
+ITAEE_31.xlsx|Serie detallada|Entidades federativas por actividad económica|Guanajuato
+ITAEE_32.xlsx|Serie detallada|Entidades federativas por actividad económica|Guerrero
+ITAEE_33.xlsx|Serie detallada|Entidades federativas por actividad económica|Hidalgo
+ITAEE_34.xlsx|Serie detallada|Entidades federativas por actividad económica|Jalisco
+ITAEE_35.xlsx|Serie detallada|Entidades federativas por actividad económica|México
+ITAEE_36.xlsx|Serie detallada|Entidades federativas por actividad económica|Michoacán de Ocampo
+ITAEE_37.xlsx|Serie detallada|Entidades federativas por actividad económica|Morelos
+ITAEE_38.xlsx|Serie detallada|Entidades federativas por actividad económica|Nayarit
+ITAEE_39.xlsx|Serie detallada|Entidades federativas por actividad económica|Nuevo León
+ITAEE_40.xlsx|Serie detallada|Entidades federativas por actividad económica|Oaxaca
+ITAEE_41.xlsx|Serie detallada|Entidades federativas por actividad económica|Puebla
+ITAEE_42.xlsx|Serie detallada|Entidades federativas por actividad económica|Querétaro
+ITAEE_43.xlsx|Serie detallada|Entidades federativas por actividad económica|Quintana Roo
+ITAEE_44.xlsx|Serie detallada|Entidades federativas por actividad económica|San Luis Potosí
+ITAEE_45.xlsx|Serie detallada|Entidades federativas por actividad económica|Sinaloa
+ITAEE_46.xlsx|Serie detallada|Entidades federativas por actividad económica|Sonora
+ITAEE_47.xlsx|Serie detallada|Entidades federativas por actividad económica|Tabasco
+ITAEE_48.xlsx|Serie detallada|Entidades federativas por actividad económica|Tamaulipas
+ITAEE_49.xlsx|Serie detallada|Entidades federativas por actividad económica|Tlaxcala
+ITAEE_50.xlsx|Serie detallada|Entidades federativas por actividad económica|Veracruz de Ignacio de la Llave
+ITAEE_51.xlsx|Serie detallada|Entidades federativas por actividad económica|Yucatán
+ITAEE_52.xlsx|Serie detallada|Entidades federativas por actividad económica|Zacatecas
+ITAEE_54.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Estados Unidos Mexicanos
+ITAEE_55.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Campeche
+ITAEE_56.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Coahuila de Zaragoza
+ITAEE_57.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Chiapas
+ITAEE_58.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Nuevo León
+ITAEE_59.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Puebla
+ITAEE_60.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|San Luis Potosí
+ITAEE_61.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Tabasco
+ITAEE_62.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Tamaulipas
+ITAEE_63.xlsx|Serie detallada|Por entidad federativa (sin minería petrolera)|Veracruz de Ignacio de la Llave
+ITAEE_65.xlsx|Serie detallada|Por región|Total de la economía
+ITAEE_66.xlsx|Serie detallada|Por región|Actividades primarias
+ITAEE_67.xlsx|Serie detallada|Por región|Actividades primarias|Agricultura. Cría y explotación de animales
+ITAEE_68.xlsx|Serie detallada|Por región|Actividades primarias|Resto
+ITAEE_69.xlsx|Serie detallada|Por región|Actividades secundarias
+ITAEE_70.xlsx|Serie detallada|Por región|Actividades secundarias|Minería
+ITAEE_71.xlsx|Serie detallada|Por región|Actividades secundarias|Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final
+ITAEE_72.xlsx|Serie detallada|Por región|Actividades secundarias|Construcción
+ITAEE_73.xlsx|Serie detallada|Por región|Actividades secundarias|Industrias manufactureras
+ITAEE_74.xlsx|Serie detallada|Por región|Actividades terciarias
+ITAEE_75.xlsx|Serie detallada|Por región|Actividades terciarias|Comercio
+ITAEE_76.xlsx|Serie detallada|Por región|Actividades terciarias|Transportes, correos y almacenamiento. Información en medios masivos
+ITAEE_77.xlsx|Serie detallada|Por región|Actividades terciarias|Servicios financieros y de seguros. Servicios inmobiliarios y de alquiler de bienes muebles e intangibles
+ITAEE_78.xlsx|Serie detallada|Por región|Actividades terciarias|Servicios profesionales, científicos y técnicos. Corporativos. Servicios de apoyo a los negocios y manejo de residuos y desechos, y servicios de remediación. Otros servicios excepto actividades gubernamentales
+ITAEE_79.xlsx|Serie detallada|Por región|Actividades terciarias|Servicios educativos. Servicios de salud y de asistencia social. Actividades legislativas, gubernamentales, de impartición de justicia
+ITAEE_80.xlsx|Serie detallada|Por región|Actividades terciarias|Servicios de esparcimiento culturales y deportivos, y otros servicios recreativos. Servicios de alojamiento temporal y de preparación de alimentos y bebidas 
+ITAEE_r_3.xlsx|Serie retropolada reducida|Actividades económicas por entidad federativa|Total de la economía
+ITAEE_r_4.xlsx|Serie retropolada reducida|Actividades económicas por entidad federativa|Actividades primarias
+ITAEE_r_5.xlsx|Serie retropolada reducida|Actividades económicas por entidad federativa|Actividades secundarias
+ITAEE_r_6.xlsx|Serie retropolada reducida|Actividades económicas por entidad federativa|Actividades terciarias
+ITAEE_r_8.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Estados Unidos Mexicanos
+ITAEE_r_9.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Aguascalientes
+ITAEE_r_10.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Baja California
+ITAEE_r_11.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Baja California Sur
+ITAEE_r_12.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Campeche
+ITAEE_r_13.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Coahuila de Zaragoza
+ITAEE_r_14.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Colima
+ITAEE_r_15.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Chiapas
+ITAEE_r_16.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Chihuahua
+ITAEE_r_17.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Ciudad de México
+ITAEE_r_18.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Durango
+ITAEE_r_19.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Guanajuato
+ITAEE_r_20.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Guerrero
+ITAEE_r_21.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Hidalgo
+ITAEE_r_22.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Jalisco
+ITAEE_r_23.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|México
+ITAEE_r_24.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Michoacán de Ocampo
+ITAEE_r_25.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Morelos
+ITAEE_r_26.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Nayarit
+ITAEE_r_27.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Nuevo León
+ITAEE_r_28.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Oaxaca
+ITAEE_r_29.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Puebla
+ITAEE_r_30.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Querétaro
+ITAEE_r_31.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Quintana Roo
+ITAEE_r_32.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|San Luis Potosí
+ITAEE_r_33.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Sinaloa
+ITAEE_r_34.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Sonora
+ITAEE_r_35.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Tabasco
+ITAEE_r_36.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Tamaulipas
+ITAEE_r_37.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Tlaxcala
+ITAEE_r_38.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Veracruz de Ignacio de la Llave
+ITAEE_r_39.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Yucatán
+ITAEE_r_40.xlsx|Serie retropolada reducida|Entidades federativas por actividad económica|Zacatecas
