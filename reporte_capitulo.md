@@ -279,8 +279,6 @@ El presente análisis presenta varias limitaciones que sugieren avenidas para in
 
 5. **Heterogeneidad intra-estatal.** El ITAEE agrega la actividad económica de toda la entidad federativa, ocultando posibles efectos diferenciados entre sectores económicos. Un análisis sectorial podría revelar canales de transmisión específicos, como el efecto del tipo de cambio sobre la manufactura de exportación o la minería.
 
-## 6. Conclusiones
-
 Este capítulo examina la relación entre tipos de cambio bilaterales de 11 divisas y la actividad económica estatal de cinco estados de la región centro-norte de México (Aguascalientes, Durango, Querétaro, San Luis Potosí y Zacatecas) durante el periodo 2007-2024, mediante modelos de Vectores Autorregresivos.
 
 Los resultados principales indican que:
