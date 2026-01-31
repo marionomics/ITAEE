@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipo de Cambio y Actividad Econ&oacute;mica Estatal en M&eacute;xico</title>
+<script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --text: #1a1a2e;
+  --text-muted: #555;
+  --accent: #2c3e50;
+  --accent2: #c0392b;
+  --border: #dee2e6;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --nav-bg: #1a1a2e;
+  --nav-text: #ecf0f1;
+  --highlight-bg: #fef9e7;
+  --highlight-border: #f1c40f;
+  --table-header: #2c3e50;
+  --table-header-text: #fff;
+  --table-stripe: #f2f3f4;
+}
+[data-theme="dark"] {
+  --bg: #0f0f1a;
+  --bg-alt: #1a1a2e;
+  --text: #ecf0f1;
+  --text-muted: #aab;
+  --accent: #5dade2;
+  --accent2: #e74c3c;
+  --border: #333;
+  --card-bg: #1e1e30;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --nav-bg: #0a0a14;
+  --nav-text: #ecf0f1;
+  --highlight-bg: #2c2c1a;
+  --highlight-border: #f39c12;
+  --table-header: #16213e;
+  --table-header-text: #ecf0f1;
+  --table-stripe: #1a1a2e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+nav {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 0;
+  flex-wrap: wrap;
+}
+.nav-brand {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.75rem 0;
+  margin-right: auto;
+  white-space: nowrap;
+}
+.nav-links { display: flex; gap: 0; flex-wrap: wrap; }
+.nav-links a {
+  color: var(--nav-text);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s, opacity 0.2s;
+  opacity: 0.75;
+  cursor: pointer;
+}
+.nav-links a:hover, .nav-links a.active { opacity: 1; border-bottom-color: var(--accent2); }
+.theme-toggle {
+  background: none; border: 1px solid rgba(255,255,255,0.3);
+  color: var(--nav-text); padding: 0.4rem 0.6rem; border-radius: 4px;
+  cursor: pointer; font-size: 0.85rem; margin-left: 0.5rem;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
+section { display: none; }
+section.active { display: block; }
+h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--accent); }
+h2 { font-size: 1.4rem; margin: 2rem 0 1rem; color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.4rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.75rem; }
+p { margin-bottom: 1rem; }
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--card-shadow);
+}
+.highlight {
+  background: var(--highlight-bg);
+  border-left: 4px solid var(--highlight-border);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+}
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.fig-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.25rem; margin: 1.5rem 0; }
+.fig-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.fig-card:hover { transform: translateY(-2px); }
+.fig-card img { width: 100%; display: block; }
+.fig-card .caption { padding: 0.6rem 0.8rem; font-size: 0.85rem; color: var(--text-muted); }
+.lightbox {
+  display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85); z-index: 200; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.lightbox.show { display: flex; }
+.lightbox img { max-width: 95%; max-height: 95%; border-radius: 8px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 1rem 0;
+}
+th {
+  background: var(--table-header);
+  color: var(--table-header-text);
+  padding: 0.6rem 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+td { padding: 0.5rem; border-bottom: 1px solid var(--border); }
+tr:nth-child(even) { background: var(--table-stripe); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; max-height: 500px; overflow-y: auto; }
+select, input[type="text"] {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+select:focus, input:focus { outline: 2px solid var(--accent); }
+.controls { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1rem; }
+label { font-size: 0.9rem; font-weight: 500; }
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+.badge-green { background: #d5f5e3; color: #1e8449; }
+.badge-red { background: #fadbd8; color: #922b21; }
+.badge-yellow { background: #fef9e7; color: #7d6608; }
+[data-theme="dark"] .badge-green { background: #1a3a2a; color: #82e0aa; }
+[data-theme="dark"] .badge-red { background: #3a1a1a; color: #f1948a; }
+[data-theme="dark"] .badge-yellow { background: #3a3a1a; color: #f9e79f; }
+.stat-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+}
+.stat-card .num { font-size: 2rem; font-weight: 700; color: var(--accent); }
+.stat-card .lbl { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+@media (max-width: 640px) {
+  .nav-brand { font-size: 0.85rem; }
+  .nav-links a { padding: 0.5rem 0.6rem; font-size: 0.8rem; }
+  h1 { font-size: 1.4rem; }
+  .container { padding: 1rem 0.75rem; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">ITAEE &amp; Tipo de Cambio</div>
+    <div class="nav-links">
+      <a onclick="showTab('inicio')" id="tab-inicio" class="active">Inicio</a>
+      <a onclick="showTab('datos')" id="tab-datos">Datos</a>
+      <a onclick="showTab('exploracion')" id="tab-exploracion">Exploraci&oacute;n</a>
+      <a onclick="showTab('var')" id="tab-var">Modelo VAR</a>
+      <a onclick="showTab('resultados')" id="tab-resultados">Resultados</a>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">&#9681;</button>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ==================== INICIO ==================== -->
+<section id="sec-inicio" class="active">
+<h1>Tipo de Cambio y Actividad Econ&oacute;mica Estatal en M&eacute;xico</h1>
+<p style="font-size:1.05rem;color:var(--text-muted);">Un an&aacute;lisis VAR para estados de la regi&oacute;n centro-norte</p>
+
+<div class="stat-cards">
+  <div class="stat-card"><div class="num">5</div><div class="lbl">Estados analizados</div></div>
+  <div class="stat-card"><div class="num">11</div><div class="lbl">Tipos de cambio bilaterales</div></div>
+  <div class="stat-card"><div class="num">70</div><div class="lbl">Trimestres (2007Q2 &ndash; 2024Q4)</div></div>
+  <div class="stat-card"><div class="num">1/55</div><div class="lbl">Pruebas Granger significativas</div></div>
+</div>
+
+<div class="grid-2">
+<div class="card">
+<h3>Objetivo</h3>
+<p>Evaluar si las fluctuaciones en los tipos de cambio bilaterales del peso mexicano tienen efectos significativos sobre la actividad econ&oacute;mica de cinco estados de la regi&oacute;n centro-norte de M&eacute;xico: <strong>Aguascalientes, Durango, Quer&eacute;taro, San Luis Potos&iacute;</strong> y <strong>Zacatecas</strong>.</p>
+</div>
+<div class="card">
+<h3>Datos</h3>
+<p>El Indicador Trimestral de la Actividad Econ&oacute;mica Estatal (ITAEE) proviene de INEGI. Los 11 tipos de cambio bilaterales (USD, CAD, BRL, JPY, CNY, COP, CLP, RUB, ILS, EUR, INR) se obtuvieron de Yahoo Finance v&iacute;a <code>yfinance</code>.</p>
+</div>
+</div>
+
+<div class="card">
+<h3>Metodolog&iacute;a</h3>
+<p>Se estiman modelos de Vectores Autorregresivos (VAR) con 13 variables end&oacute;genas por estado (ITAEE nacional + ITAEE estatal + 11 tipos de cambio), transformadas en log-diferencias para garantizar estacionariedad. Se seleccionaron 3 rezagos (criterio AIC) para todos los estados.</p>
+<p>Las herramientas de an&aacute;lisis incluyen: pruebas de <strong>causalidad de Granger</strong>, <strong>funciones de impulso-respuesta (IRF)</strong> con bandas de confianza Monte Carlo al 95%, y <strong>descomposici&oacute;n de varianza del error de pron&oacute;stico (FEVD)</strong> a 20 trimestres.</p>
+</div>
+
+<div class="highlight">
+<h3>Hallazgo principal</h3>
+<p>De las 55 pruebas de causalidad de Granger (11 divisas &times; 5 estados), <strong>solo una result&oacute; estad&iacute;sticamente significativa al 5%</strong>: la rupia india (INR) hacia el ITAEE de Durango (p = 0.013). Sin embargo, los tipos de cambio en conjunto explican entre el 33% y 47% de la varianza del ITAEE estatal a 20 trimestres, mientras que el ciclo nacional (ITAEE Nacional) domina con 26&ndash;52%.</p>
+</div>
+
+<div class="card">
+<h3>Interpretaci&oacute;n</h3>
+<p>Los resultados sugieren que los tipos de cambio no tienen un efecto causal directo y estad&iacute;sticamente significativo sobre la actividad econ&oacute;mica estatal en la mayor&iacute;a de los casos. Los efectos cambiarios pueden operar a trav&eacute;s de mecanismos indirectos (precios, inversi&oacute;n, condiciones financieras) capturados por el componente nacional. La agregaci&oacute;n trimestral puede suavizar efectos de alta frecuencia.</p>
+</div>
+</section>
+
+<!-- ==================== DATOS ==================== -->
+<section id="sec-datos">
+<h1>Explorador de Datos</h1>
+<p>Series trimestrales del ITAEE y tipos de cambio bilaterales. Use los controles para seleccionar variables y explorar la serie interactivamente.</p>
+
+<div class="card">
+<h3>Series de Tiempo Interactivas</h3>
+<div class="controls">
+  <label>Grupo:
+    <select id="data-group" onchange="updatePlotlyChart()">
+      <option value="itaee">ITAEE (actividad econ&oacute;mica)</option>
+      <option value="fx">Tipos de cambio (MXN)</option>
+      <option value="both">Ambos (ejes duales)</option>
+    </select>
+  </label>
+</div>
+<div id="timeseries-chart" style="width:100%;height:500px;"></div>
+</div>
+
+<div class="card">
+<h3>Tabla de Datos</h3>
+<div class="controls">
+  <label>Buscar: <input type="text" id="data-search" oninput="filterDataTable()" placeholder="e.g. 2020Q2"></label>
+</div>
+<div class="table-wrap">
+  <table id="data-table"></table>
+</div>
+</div>
+</section>
+
+<!-- ==================== EXPLORACION ==================== -->
+<section id="sec-exploracion">
+<h1>An&aacute;lisis Exploratorio</h1>
+<p>Figuras descriptivas de las series ITAEE y tipos de cambio.</p>
+
+<div class="fig-grid">
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/01_itaee_series.png" alt="Series ITAEE" loading="lazy">
+    <div class="caption">Fig. 1 &mdash; Evoluci&oacute;n del ITAEE para los cinco estados y el agregado nacional</div>
+  </div>
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/02_fx_series.png" alt="Series FX" loading="lazy">
+    <div class="caption">Fig. 2 &mdash; 11 tipos de cambio bilaterales vs MXN</div>
+  </div>
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/03_fx_normalized.png" alt="FX normalizados" loading="lazy">
+    <div class="caption">Fig. 3 &mdash; Tipos de cambio normalizados (base = 100)</div>
+  </div>
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/04_pct_change.png" alt="Cambios porcentuales" loading="lazy">
+    <div class="caption">Fig. 4 &mdash; Cambios porcentuales trimestrales</div>
+  </div>
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/05_correlation_levels.png" alt="Correlacion niveles" loading="lazy">
+    <div class="caption">Fig. 5 &mdash; Matriz de correlaci&oacute;n en niveles</div>
+  </div>
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/06_correlation_pctchange.png" alt="Correlacion log-dif" loading="lazy">
+    <div class="caption">Fig. 6 &mdash; Matriz de correlaci&oacute;n en log-diferencias</div>
+  </div>
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/07_itaee_vs_usdmxn.png" alt="ITAEE vs USD/MXN" loading="lazy">
+    <div class="caption">Fig. 7 &mdash; Relaci&oacute;n bivariada ITAEE vs USD/MXN</div>
+  </div>
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img src="figures/08_boxplots.png" alt="Boxplots" loading="lazy">
+    <div class="caption">Fig. 8 &mdash; Distribuci&oacute;n del ITAEE por estado</div>
+  </div>
+</div>
+</section>
+
+<!-- ==================== MODELO VAR ==================== -->
+<section id="sec-var">
+<h1>Modelo VAR</h1>
+<p>Resultados del modelo de Vectores Autorregresivos estimado para cada estado (p = 3 rezagos, criterio AIC).</p>
+
+<h2>Causalidad de Granger</h2>
+<div class="card">
+<p>Mapa de calor de valores p para las pruebas F de causalidad de Granger (H<sub>0</sub>: el tipo de cambio <em>no</em> causa en el sentido de Granger al ITAEE estatal).</p>
+<div class="fig-card" onclick="openLightbox(this)" style="max-width:700px;">
+  <img src="figures/var_granger_heatmap.png" alt="Granger heatmap" loading="lazy">
+  <div class="caption">Heatmap de p-values &mdash; Causalidad de Granger (FX &rarr; ITAEE estatal). Solo INR &rarr; Durango es significativa al 5%.</div>
+</div>
+</div>
+
+<h2>Funciones de Impulso-Respuesta (IRF)</h2>
+<div class="card">
+<p>Respuestas del ITAEE estatal ante choques unitarios en los tipos de cambio. Horizonte de 20 trimestres con bandas de confianza Monte Carlo al 95% (500 r&eacute;plicas).</p>
+<div class="controls">
+  <label>Estado:
+    <select id="irf-state" onchange="updateIRF()">
+      <option value="aguascalientes">Aguascalientes</option>
+      <option value="durango">Durango</option>
+      <option value="quer&eacute;taro">Quer&eacute;taro</option>
+      <option value="san_luis_potos&iacute;">San Luis Potos&iacute;</option>
+      <option value="zacatecas">Zacatecas</option>
+    </select>
+  </label>
+</div>
+<div id="irf-display">
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img id="irf-img" src="figures/var_irf_aguascalientes.png" alt="IRF" loading="lazy">
+  </div>
+</div>
+</div>
+
+<h2>Descomposici&oacute;n de Varianza (FEVD)</h2>
+<div class="card">
+<p>Proporci&oacute;n de la varianza del error de pron&oacute;stico del ITAEE estatal explicada por cada variable a 20 trimestres.</p>
+<div class="controls">
+  <label>Estado:
+    <select id="fevd-state" onchange="updateFEVD()">
+      <option value="aguascalientes">Aguascalientes</option>
+      <option value="durango">Durango</option>
+      <option value="quer&eacute;taro">Quer&eacute;taro</option>
+      <option value="san_luis_potos&iacute;">San Luis Potos&iacute;</option>
+      <option value="zacatecas">Zacatecas</option>
+    </select>
+  </label>
+</div>
+<div id="fevd-display">
+  <div class="fig-card" onclick="openLightbox(this)">
+    <img id="fevd-img" src="figures/var_fevd_aguascalientes.png" alt="FEVD" loading="lazy">
+  </div>
+</div>
+</div>
+
+<div class="card" style="margin-top:1.5rem;">
+<h3>Heatmap FEVD (contribuci&oacute;n FX agregada)</h3>
+<div class="fig-card" onclick="openLightbox(this)" style="max-width:700px;">
+  <img src="figures/var_fevd_heatmap.png" alt="FEVD heatmap" loading="lazy">
+  <div class="caption">Participaci&oacute;n de cada tipo de cambio en la varianza del ITAEE estatal a 20 trimestres</div>
+</div>
+</div>
+</section>
+
+<!-- ==================== RESULTADOS ==================== -->
+<section id="sec-resultados">
+<h1>Resumen de Resultados</h1>
+
+<h2>Causalidad de Granger (valores p)</h2>
+<div class="highlight">
+<p>De 55 pruebas, <strong>solo 1 es significativa al 5%</strong>: INR &rarr; Durango (p = 0.013). USD &rarr; Durango es marginalmente significativa al 10% (p = 0.054).</p>
+</div>
+<div class="table-wrap">
+<table id="granger-table">
+<thead>
+<tr><th>Estado</th><th>USD</th><th>CAD</th><th>BRL</th><th>JPY</th><th>CNY</th><th>COP</th><th>CLP</th><th>RUB</th><th>ILS</th><th>EUR</th><th>INR</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+<h2>FEVD a 20 trimestres (% de varianza explicada)</h2>
+<div class="highlight">
+<p>El ITAEE Nacional explica entre 26% y 52% de la varianza estatal. Los tipos de cambio en conjunto explican entre 33% y 47%, sin que una sola divisa domine.</p>
+</div>
+<div class="table-wrap">
+<table id="fevd-table">
+<thead>
+<tr><th>Estado</th><th>Nacional</th><th>Propio</th><th>USD</th><th>CAD</th><th>BRL</th><th>JPY</th><th>CNY</th><th>COP</th><th>CLP</th><th>RUB</th><th>ILS</th><th>EUR</th><th>INR</th><th>Total FX</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+
+<h2>Hallazgos Clave por Estado</h2>
+<div class="grid-2">
+<div class="card">
+  <h3>Aguascalientes</h3>
+  <p>Hub manufacturero con exposici&oacute;n cambiaria diversificada. El ITAEE Nacional domina (50.9%). FX total: 32.6%. Ninguna divisa destaca individualmente (INR 4.8%, CAD 5.2%).</p>
+</div>
+<div class="card">
+  <h3>Durango</h3>
+  <p><strong>&Uacute;nico estado con causalidad de Granger significativa</strong> (INR, p = 0.013). USD marginalmente significativo (p = 0.054). Mayor sensibilidad a JPY (7.7%) y BRL (6.3%). Estructura productiva diversificada. FX total: 44.1%.</p>
+</div>
+<div class="card">
+  <h3>Quer&eacute;taro</h3>
+  <p>Hub manufacturero y aeroespacial. ITAEE Nacional domina (51.0%). Mayor exposici&oacute;n a BRL (7.6%) y CNY (5.6%). FX total: 36.1%.</p>
+</div>
+<div class="card">
+  <h3>San Luis Potos&iacute;</h3>
+  <p>Mayor exposici&oacute;n al COP (8.0%), posiblemente reflejando condiciones emergentes compartidas. ITAEE Nacional explica 52.1%. FX total: 34.7%.</p>
+</div>
+<div class="card">
+  <h3>Zacatecas</h3>
+  <p><strong>Mayor exposici&oacute;n cambiaria total (47.3%)</strong> y la m&aacute;s alta a CNY (11.2%), reflejando competencia en commodities minerales donde China es dominante. Menor dependencia del ciclo nacional (27.2%).</p>
+</div>
+</div>
+
+<h2>Limitaciones</h2>
+<div class="card">
+<ul style="padding-left:1.5rem;">
+  <li>Muestra peque&ntilde;a: 70 observaciones, 13 variables, p = 3 &mdash; grados de libertad limitados</li>
+  <li>Residuos no normales (especialmente ecuaciones ITAEE) por outliers de COVID-19</li>
+  <li>Variables omitidas: tasas de inter&eacute;s, precios del petr&oacute;leo, flujos de IED</li>
+  <li>Sin an&aacute;lisis de cointegraci&oacute;n (VECM)</li>
+  <li>Endogeneidad de tipos de cambio no completamente resuelta</li>
+  <li>Agregaci&oacute;n estatal oculta heterogeneidad sectorial</li>
+</ul>
+</div>
+</section>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Zoom">
+</div>
+
+<footer>
+  Tipo de Cambio y Actividad Econ&oacute;mica Estatal en M&eacute;xico &mdash; An&aacute;lisis VAR (2007&ndash;2024)<br>
+  Datos: INEGI (ITAEE) &amp; Yahoo Finance (FX) &bull; Figuras generadas con matplotlib/seaborn &bull; Sitio generado con Plotly.js
+</footer>
+
+<script>
+// ===== DATA =====
+const DATA = [
+["2007Q2",83.90,64.66,77.73,72.83,67.93,70.94,10.87,9.90,5.58,0.090,1.42,0.00556,0.0213,0.420,2.66,14.65,0.265],
+["2007Q4",84.67,66.32,82.66,72.34,70.33,73.90,10.84,11.05,6.07,0.096,1.46,0.00546,0.0220,0.440,2.75,15.70,0.276],
+["2008Q1",81.33,63.31,79.64,71.63,69.90,69.31,10.80,10.74,6.20,0.103,1.51,0.00574,0.0237,0.446,2.99,16.22,0.272],
+["2008Q2",85.72,66.85,83.02,73.17,71.82,74.11,10.42,10.32,6.29,0.100,1.50,0.00599,0.0225,0.441,3.05,16.28,0.251],
+["2008Q3",84.11,67.61,86.18,73.73,71.50,76.83,10.32,10.03,6.17,0.096,1.51,0.00553,0.0204,0.427,3.01,15.62,0.236],
+["2008Q4",83.98,65.42,85.47,73.97,69.99,74.98,13.07,10.79,5.72,0.137,1.91,0.00580,0.0208,0.479,3.44,17.31,0.269],
+["2009Q1",76.04,57.13,78.86,67.05,65.38,68.96,14.37,11.54,6.20,0.153,2.10,0.00602,0.0241,0.425,3.55,18.75,0.289],
+["2009Q2",77.34,58.72,81.61,67.29,65.60,77.30,13.32,11.42,6.42,0.137,1.95,0.00603,0.0239,0.415,3.28,18.15,0.274],
+["2009Q3",79.46,63.23,83.19,71.88,66.37,82.97,13.26,12.09,7.09,0.142,1.94,0.00663,0.0248,0.421,3.47,18.97,0.275],
+["2009Q4",82.49,65.72,86.08,74.47,69.48,82.82,13.05,12.36,7.49,0.145,1.91,0.00670,0.0257,0.443,3.47,19.28,0.280],
+["2010Q1",79.74,63.30,79.89,71.22,67.48,79.00,12.76,12.27,7.07,0.141,1.87,0.00661,0.0251,0.428,3.42,17.66,0.278],
+["2010Q2",83.04,65.26,84.16,74.41,71.06,85.69,12.56,12.22,6.99,0.137,1.84,0.00647,0.0242,0.415,3.32,15.98,0.276],
+["2010Q3",83.50,69.29,85.19,79.97,71.28,90.89,12.79,12.31,7.30,0.149,1.89,0.00703,0.0255,0.419,3.37,16.53,0.276],
+["2010Q4",85.79,69.12,88.12,81.51,73.22,86.76,12.38,12.22,7.29,0.150,1.86,0.00665,0.0259,0.403,3.42,16.81,0.277],
+["2011Q1",82.83,67.00,84.58,78.25,71.76,80.20,12.05,12.23,7.22,0.147,1.83,0.00645,0.0252,0.413,3.36,16.49,0.267],
+["2011Q2",85.25,68.87,87.10,80.31,74.37,87.77,11.71,12.10,7.33,0.144,1.80,0.00654,0.0251,0.419,3.41,16.85,0.262],
+["2011Q3",86.77,70.76,87.98,85.87,75.31,88.76,12.33,12.55,7.52,0.158,1.93,0.00690,0.0264,0.424,3.48,17.42,0.270],
+["2011Q4",89.20,73.33,93.07,88.34,77.23,90.75,13.65,13.32,7.56,0.176,2.15,0.00715,0.0269,0.439,3.67,18.38,0.269],
+["2012Q1",87.02,72.44,86.74,85.19,76.90,86.11,12.97,12.96,7.34,0.164,2.06,0.00723,0.0265,0.430,3.44,17.00,0.258],
+["2012Q2",88.88,73.29,92.28,85.38,78.58,89.12,13.53,13.39,6.89,0.169,2.14,0.00766,0.0273,0.437,3.55,17.37,0.251],
+["2012Q3",89.02,73.30,94.06,88.62,78.44,91.00,13.16,13.22,6.48,0.167,2.07,0.00734,0.0273,0.412,3.31,16.45,0.238],
+["2012Q4",91.81,76.10,97.06,85.42,80.55,89.08,12.94,13.06,6.28,0.160,2.07,0.00717,0.0271,0.417,3.37,16.78,0.239],
+["2013Q1",86.88,75.29,90.37,83.03,78.84,81.52,12.63,12.55,6.32,0.137,2.03,0.00706,0.0267,0.416,3.41,16.68,0.233],
+["2013Q2",90.50,75.81,95.62,86.97,82.84,86.31,12.47,12.18,6.03,0.126,2.03,0.00670,0.0258,0.395,3.44,16.28,0.224],
+["2013Q3",90.01,76.41,99.09,86.17,80.06,92.12,12.90,12.41,5.64,0.130,2.11,0.0689,0.0254,0.394,3.60,17.09,0.208],
+["2013Q4",92.70,78.81,103.16,85.72,82.07,89.95,13.02,12.41,5.72,0.130,2.14,0.00681,0.0252,0.400,3.70,17.71,0.210],
+["2014Q1",89.03,82.18,93.76,84.15,79.21,84.26,13.22,12.00,5.58,0.129,2.17,0.00659,0.0240,0.379,3.79,18.12,0.214],
+["2014Q2",92.29,82.94,100.60,87.70,83.46,92.67,12.99,11.91,5.82,0.127,2.09,0.00679,0.0599,0.372,3.75,17.82,0.217],
+["2014Q3",92.37,83.94,101.55,90.24,82.31,99.57,13.12,12.05,5.77,0.126,2.13,0.00697,0.0228,0.363,3.74,17.40,0.217],
+["2014Q4",95.43,88.30,103.56,92.79,85.64,97.09,13.90,12.21,5.44,0.121,2.26,0.01559,0.0232,0.296,3.64,17.36,0.224],
+["2015Q1",91.58,85.45,92.16,90.06,82.28,84.09,14.95,12.06,5.24,0.125,2.40,0.02595,0.0240,0.239,3.79,16.86,0.240],
+["2015Q2",94.32,89.69,96.81,93.36,84.55,94.53,15.32,12.46,4.98,0.126,2.47,0.01527,0.0248,0.291,3.96,16.94,0.242],
+["2015Q3",95.34,90.07,99.63,95.89,88.42,97.82,16.44,12.56,4.67,0.134,2.61,0.00563,0.0244,0.262,4.28,18.29,0.253],
+["2015Q4",97.31,92.39,100.19,96.35,89.45,101.35,16.76,12.55,4.35,0.138,2.63,0.01400,0.0240,0.255,4.33,18.36,0.254],
+["2016Q1",93.05,89.39,92.89,91.90,84.79,86.16,18.03,13.13,4.62,0.156,2.76,0.01394,0.0258,0.615,4.62,19.89,0.267],
+["2016Q2",96.45,93.65,98.48,93.77,91.49,92.74,18.10,14.03,5.16,0.167,2.78,0.00608,0.0269,0.275,4.75,20.45,0.271],
+["2016Q3",96.11,92.72,100.81,94.15,91.05,102.31,18.76,14.37,5.77,0.183,2.82,0.00643,0.0286,0.291,4.94,20.94,0.280],
+["2016Q4",99.56,97.95,102.94,97.22,95.39,100.73,19.84,14.84,6.00,0.181,2.91,0.00663,0.0934,0.315,5.19,21.39,0.294],
+["2017Q1",96.21,96.17,95.61,95.23,93.31,91.62,20.29,15.36,6.46,0.179,2.95,0.00699,0.0311,0.345,5.44,21.62,0.303],
+["2017Q2",97.82,95.50,97.87,95.45,96.08,96.40,18.55,13.79,5.78,0.167,2.70,0.00637,0.0280,0.325,5.17,20.41,0.288],
+["2017Q3",97.26,96.00,101.17,96.66,96.84,101.01,17.82,14.21,5.63,0.161,2.67,0.00601,0.0278,0.302,5.01,20.94,0.277],
+["2017Q4",101.07,95.12,100.01,99.93,100.74,100.43,18.98,14.92,5.84,0.168,2.87,0.00640,0.0301,0.325,5.41,22.35,0.293],
+["2018Q1",97.24,97.70,94.66,98.43,97.53,93.21,18.73,14.84,5.78,0.173,2.94,0.00657,0.0311,0.329,5.42,23.00,0.291],
+["2018Q2",100.70,98.66,97.75,100.08,102.36,99.09,19.38,15.02,5.39,0.178,3.04,0.00684,0.0312,0.313,5.42,23.10,0.289],
+["2018Q3",99.93,100.46,102.71,100.77,97.95,105.14,18.96,14.51,4.81,0.170,2.79,0.00642,0.0286,0.290,5.22,22.06,0.271],
+["2018Q4",102.13,103.19,104.87,100.73,102.16,102.56,19.81,15.00,5.20,0.176,2.86,0.00627,0.0292,0.298,5.35,22.60,0.274],
+["2019Q1",98.13,96.39,96.12,98.64,94.78,89.44,19.20,14.44,5.10,0.174,2.84,0.00614,0.0288,0.291,5.27,21.82,0.272],
+["2019Q2",99.64,100.59,100.80,99.48,97.25,94.39,19.11,14.28,4.87,0.174,2.80,0.00591,0.0280,0.296,5.32,21.47,0.274],
+["2019Q3",99.43,101.42,101.71,100.42,95.22,101.43,19.42,14.72,4.90,0.181,2.77,0.00584,0.0276,0.301,5.51,21.61,0.275],
+["2019Q4",101.05,103.25,101.75,99.79,96.19,99.90,19.25,14.59,4.68,0.177,2.73,0.00567,0.0255,0.302,5.51,21.31,0.270],
+["2020Q1",96.86,98.80,93.51,96.76,94.03,92.48,19.95,14.83,4.48,0.183,2.86,0.00565,0.0248,0.299,5.70,22.02,0.275],
+["2020Q2",80.01,77.31,85.57,78.17,75.75,78.45,23.34,16.83,4.35,0.217,3.29,0.00607,0.0283,0.322,6.64,25.68,0.307],
+["2020Q3",91.61,96.39,95.90,91.59,94.15,101.05,22.09,16.58,4.11,0.208,3.19,0.00593,0.0283,0.300,6.46,25.81,0.297],
+["2020Q4",97.76,103.34,96.09,96.29,95.75,99.51,20.56,15.77,3.81,0.197,3.10,0.00563,0.0270,0.270,6.17,24.51,0.278],
+["2021Q1",94.58,99.81,93.17,93.37,91.28,88.40,20.33,16.06,3.72,0.192,3.14,0.00573,0.0281,0.273,6.22,24.51,0.279],
+["2021Q2",97.63,97.17,98.19,94.04,95.87,95.79,20.02,16.30,3.78,0.183,3.10,0.00542,0.0280,0.270,6.14,24.13,0.271],
+["2021Q3",95.96,92.21,100.33,95.85,90.74,103.72,20.01,15.90,3.83,0.182,3.09,0.00521,0.0259,0.272,6.19,23.60,0.270],
+["2021Q4",99.17,95.92,100.50,94.28,93.02,102.50,20.74,16.46,3.72,0.182,3.25,0.00535,0.0252,0.286,6.58,23.72,0.277],
+["2022Q1",96.85,95.37,93.12,92.05,91.96,90.50,20.51,16.19,3.92,0.176,3.23,0.00525,0.0254,0.238,6.42,23.01,0.273],
+["2022Q2",100.22,97.02,96.80,96.57,97.39,98.46,20.02,15.69,4.08,0.155,3.03,0.00511,0.0238,0.300,5.99,21.33,0.259],
+["2022Q3",100.35,95.96,99.39,97.30,95.17,105.60,20.23,15.51,3.86,0.146,2.96,0.00462,0.0218,0.335,5.95,20.39,0.254],
+["2022Q4",103.74,96.01,98.74,98.37,98.20,101.91,19.67,14.49,3.74,0.139,2.77,0.00410,0.0215,0.314,5.64,20.07,0.240],
+["2023Q1",100.34,98.14,95.83,95.86,99.25,99.09,18.66,13.81,3.59,0.141,2.73,0.00393,0.0231,0.310,5.29,20.03,0.227],
+["2023Q2",103.45,101.90,100.58,97.95,102.48,102.57,17.68,13.17,3.57,0.129,2.52,0.00400,0.0221,0.218,4.85,19.25,0.215],
+["2023Q3",103.66,103.69,101.52,102.24,105.44,104.16,17.05,12.72,3.49,0.118,2.36,0.00422,0.0200,0.181,4.56,18.56,0.206],
+["2023Q4",105.92,103.20,101.71,103.51,103.36,100.69,17.55,12.89,3.54,0.119,2.44,0.00432,0.0196,0.189,4.60,18.88,0.211],
+["2024Q1",102.03,97.70,100.02,98.12,102.21,100.14,16.98,12.60,3.43,0.115,2.37,0.00435,0.0181,0.187,4.64,18.44,0.204],
+["2024Q2",105.58,101.25,107.62,101.79,105.26,104.92,17.21,12.59,3.31,0.111,2.38,0.00439,0.0185,0.190,4.62,18.54,0.206],
+["2024Q3",105.14,99.97,106.55,103.48,103.61,112.80,18.92,13.87,3.41,0.127,2.64,0.00462,0.0203,0.213,5.10,20.79,0.226],
+["2024Q4",106.17,100.32,104.51,101.65,103.27,109.79,20.05,14.35,3.44,0.132,2.79,0.00462,0.0209,0.201,5.42,21.42,0.238]
+];
+
+const COLS = ["quarter","ITAEE_Nacional","ITAEE_Aguascalientes","ITAEE_Durango","ITAEE_Queretaro","ITAEE_SLP","ITAEE_Zacatecas","FX_USD","FX_CAD","FX_BRL","FX_JPY","FX_CNY","FX_COP","FX_CLP","FX_RUB","FX_ILS","FX_EUR","FX_INR"];
+
+const ITAEE_NAMES = {
+  "ITAEE_Nacional":"Nacional","ITAEE_Aguascalientes":"Aguascalientes",
+  "ITAEE_Durango":"Durango","ITAEE_Queretaro":"Quer\u00e9taro",
+  "ITAEE_SLP":"San Luis Potos\u00ed","ITAEE_Zacatecas":"Zacatecas"
+};
+const FX_NAMES = {
+  "FX_USD":"USD/MXN","FX_CAD":"CAD/MXN","FX_BRL":"BRL/MXN","FX_JPY":"JPY/MXN",
+  "FX_CNY":"CNY/MXN","FX_COP":"COP/MXN","FX_CLP":"CLP/MXN","FX_RUB":"RUB/MXN",
+  "FX_ILS":"ILS/MXN","FX_EUR":"EUR/MXN","FX_INR":"INR/MXN"
+};
+const ITAEE_COLORS = ["#2c3e50","#e74c3c","#27ae60","#8e44ad","#e67e22","#2980b9"];
+const FX_COLORS = ["#1abc9c","#3498db","#9b59b6","#f39c12","#e74c3c","#2ecc71","#e67e22","#1f77b4","#ff7f0e","#d62728","#9467bd"];
+
+// Granger p-values
+const GRANGER = {
+  "Aguascalientes":[0.3896,0.5788,0.8191,0.5278,0.2168,0.9545,0.6076,0.8496,0.8366,0.4486,0.3768],
+  "Durango":[0.0544,0.2104,0.8914,0.4201,0.2364,0.7376,0.7795,0.9851,0.3921,0.4252,0.0125],
+  "Quer\u00e9taro":[0.2176,0.9115,0.6883,0.3409,0.2546,0.9878,0.8497,0.7927,0.5488,0.3793,0.3949],
+  "San Luis Potos\u00ed":[0.2874,0.7381,0.7733,0.5908,0.2561,0.9398,0.7765,0.9878,0.6770,0.7999,0.1582],
+  "Zacatecas":[0.9986,0.7963,0.1391,0.9855,0.8282,0.8261,0.2595,0.8861,0.9417,0.8417,0.7157]
+};
+
+// FEVD
+const FEVD_DATA = {
+  "Aguascalientes":{nac:0.5089,own:0.1649,fx:[0.0228,0.0523,0.0169,0.0305,0.0411,0.0255,0.0159,0.0373,0.0166,0.0197,0.0476]},
+  "Durango":{nac:0.2590,own:0.2998,fx:[0.0591,0.0352,0.0627,0.0768,0.0339,0.0542,0.0078,0.0356,0.0080,0.0506,0.0172]},
+  "Quer\u00e9taro":{nac:0.5099,own:0.1291,fx:[0.0482,0.0395,0.0755,0.0148,0.0556,0.0140,0.0058,0.0482,0.0152,0.0115,0.0327]},
+  "San Luis Potos\u00ed":{nac:0.5209,own:0.1318,fx:[0.0281,0.0535,0.0281,0.0209,0.0265,0.0803,0.0049,0.0231,0.0377,0.0144,0.0298]},
+  "Zacatecas":{nac:0.2724,own:0.2552,fx:[0.0184,0.0647,0.0587,0.0348,0.1120,0.0518,0.0087,0.0445,0.0315,0.0191,0.0284]}
+};
+
+const FX_LABELS = ["USD","CAD","BRL","JPY","CNY","COP","CLP","RUB","ILS","EUR","INR"];
+
+// ===== TAB NAVIGATION =====
+function showTab(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+  if (id === 'datos' && !window._chartDrawn) { updatePlotlyChart(); buildDataTable(); window._chartDrawn = true; }
+  if (id === 'resultados' && !window._tablesBuilt) { buildGrangerTable(); buildFEVDTable(); window._tablesBuilt = true; }
+}
+
+// ===== THEME =====
+function toggleTheme() {
+  const d = document.documentElement;
+  d.setAttribute('data-theme', d.getAttribute('data-theme') === 'dark' ? '' : 'dark');
+  // Replot if chart exists
+  if (window._chartDrawn) updatePlotlyChart();
+}
+
+// ===== PLOTLY CHART =====
+function updatePlotlyChart() {
+  const group = document.getElementById('data-group').value;
+  const quarters = DATA.map(r => r[0]);
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const traces = [];
+  const layout = {
+    margin: {t: 30, r: 60, b: 50, l: 60},
+    hovermode: 'x unified',
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: {color: isDark ? '#ecf0f1' : '#1a1a2e', size: 12},
+    xaxis: {gridcolor: isDark ? '#333' : '#eee'},
+    yaxis: {gridcolor: isDark ? '#333' : '#eee', title: 'ITAEE (\u00edndice)'},
+    legend: {orientation: 'h', y: -0.2, font: {size: 10}},
+    showlegend: true
+  };
+
+  if (group === 'itaee' || group === 'both') {
+    const itaeeCols = [1,2,3,4,5,6];
+    const itaeeNames = ["Nacional","Aguascalientes","Durango","Quer\u00e9taro","San Luis Potos\u00ed","Zacatecas"];
+    itaeeCols.forEach((ci, i) => {
+      traces.push({
+        x: quarters, y: DATA.map(r => r[ci]),
+        name: itaeeNames[i], type: 'scatter', mode: 'lines',
+        line: {color: ITAEE_COLORS[i], width: ci === 1 ? 2.5 : 1.5, dash: ci === 1 ? 'solid' : undefined},
+        yaxis: 'y'
+      });
+    });
+  }
+
+  if (group === 'fx' || group === 'both') {
+    const fxCols = [7,8,9,10,11,12,13,14,15,16,17];
+    const fxNames = ["USD","CAD","BRL","JPY","CNY","COP","CLP","RUB","ILS","EUR","INR"];
+    const yax = group === 'both' ? 'y2' : 'y';
+    fxCols.forEach((ci, i) => {
+      traces.push({
+        x: quarters, y: DATA.map(r => r[ci]),
+        name: fxNames[i], type: 'scatter', mode: 'lines',
+        line: {color: FX_COLORS[i], width: 1.3},
+        yaxis: yax
+      });
+    });
+    if (group === 'both') {
+      layout.yaxis2 = {
+        title: 'FX (MXN por unidad)', overlaying: 'y', side: 'right',
+        gridcolor: isDark ? '#333' : '#eee'
+      };
+    } else {
+      layout.yaxis.title = 'FX (MXN por unidad)';
+    }
+  }
+
+  Plotly.newPlot('timeseries-chart', traces, layout, {responsive: true});
+}
+
+// ===== DATA TABLE =====
+function buildDataTable() {
+  const tbl = document.getElementById('data-table');
+  const labels = ["Trimestre","Nacional","Ags","Dgo","Qro","SLP","Zac","USD","CAD","BRL","JPY","CNY","COP","CLP","RUB","ILS","EUR","INR"];
+  let html = '<thead><tr>' + labels.map(l => '<th>' + l + '</th>').join('') + '</tr></thead><tbody>';
+  DATA.forEach(r => {
+    html += '<tr><td>' + r[0] + '</td>';
+    for (let i = 1; i < r.length; i++) {
+      html += '<td>' + (typeof r[i] === 'number' ? r[i].toFixed(i >= 7 ? 3 : 2) : r[i]) + '</td>';
+    }
+    html += '</tr>';
+  });
+  html += '</tbody>';
+  tbl.innerHTML = html;
+}
+
+function filterDataTable() {
+  const q = document.getElementById('data-search').value.toLowerCase();
+  document.querySelectorAll('#data-table tbody tr').forEach(tr => {
+    tr.style.display = tr.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+}
+
+// ===== IRF / FEVD selectors =====
+const STATE_FILE_MAP = {
+  "aguascalientes": "aguascalientes",
+  "durango": "durango",
+  "quer\u00e9taro": "quer\u00e9taro",
+  "san_luis_potos\u00ed": "san_luis_potos\u00ed",
+  "zacatecas": "zacatecas"
+};
+function updateIRF() {
+  const s = document.getElementById('irf-state').value;
+  document.getElementById('irf-img').src = 'figures/var_irf_' + s + '.png';
+}
+function updateFEVD() {
+  const s = document.getElementById('fevd-state').value;
+  document.getElementById('fevd-img').src = 'figures/var_fevd_' + s + '.png';
+}
+
+// ===== GRANGER TABLE =====
+function buildGrangerTable() {
+  const tbody = document.querySelector('#granger-table tbody');
+  let html = '';
+  for (const [state, pvals] of Object.entries(GRANGER)) {
+    html += '<tr><td><strong>' + state + '</strong></td>';
+    pvals.forEach(p => {
+      let badge = '';
+      if (p < 0.05) badge = '<span class="badge badge-red">p=' + p.toFixed(4) + '</span>';
+      else if (p < 0.10) badge = '<span class="badge badge-yellow">p=' + p.toFixed(4) + '</span>';
+      else badge = '<span class="badge badge-green">' + p.toFixed(4) + '</span>';
+      html += '<td>' + badge + '</td>';
+    });
+    html += '</tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+// ===== FEVD TABLE =====
+function buildFEVDTable() {
+  const tbody = document.querySelector('#fevd-table tbody');
+  let html = '';
+  for (const [state, d] of Object.entries(FEVD_DATA)) {
+    const totalFX = d.fx.reduce((a, b) => a + b, 0);
+    html += '<tr><td><strong>' + state + '</strong></td>';
+    html += '<td>' + (d.nac * 100).toFixed(1) + '%</td>';
+    html += '<td>' + (d.own * 100).toFixed(1) + '%</td>';
+    d.fx.forEach(v => {
+      const pct = (v * 100).toFixed(1);
+      const cls = v >= 0.07 ? 'badge-red' : v >= 0.04 ? 'badge-yellow' : 'badge-green';
+      html += '<td><span class="badge ' + cls + '">' + pct + '%</span></td>';
+    });
+    html += '<td><strong>' + (totalFX * 100).toFixed(1) + '%</strong></td></tr>';
+  }
+  tbody.innerHTML = html;
+}
+
+// ===== LIGHTBOX =====
+function openLightbox(el) {
+  const img = el.querySelector('img');
+  if (!img) return;
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox').classList.add('show');
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('show');
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// ===== INIT =====
+window.addEventListener('DOMContentLoaded', () => {
+  showTab('inicio');
+});
+</script>
+</body>
+</html>
